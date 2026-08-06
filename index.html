@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0A0A0C">
+  <meta name="color-scheme" content="dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Transfer Command">
+  <meta name="description" content="Bobby's offline-first Santa Monica College transfer command app.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Transfer Command</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow" id="appEyebrow">SMC · FALL 2028</p>
+        <p class="brand">Transfer Command</p>
+      </div>
+      <button class="text-button" id="settingsButton" type="button" aria-haspopup="dialog" aria-controls="settingsDialog">Settings</button>
+    </header>
+
+    <main id="main" class="main-content" tabindex="-1" aria-live="polite"></main>
+
+    <nav class="bottom-nav" aria-label="Primary">
+      <span class="nav-indicator" aria-hidden="true"></span>
+      <button type="button" class="nav-item active" data-tab="today" aria-current="page">Today</button>
+      <button type="button" class="nav-item" data-tab="plan">Plan</button>
+      <button type="button" class="nav-item" data-tab="ge">GE</button>
+      <button type="button" class="nav-item" data-tab="apply">Apply</button>
+      <button type="button" class="nav-item" data-tab="playbook">Playbook</button>
+    </nav>
+  </div>
+
+  <dialog id="settingsDialog" class="settings-dialog">
+    <form method="dialog" class="dialog-frame" id="settingsForm">
+      <div class="dialog-header">
+        <div>
+          <p class="eyebrow">LOCAL SETTINGS</p>
+          <h2>Settings</h2>
+        </div>
+        <button class="text-button" value="cancel" type="submit">Close</button>
+      </div>
+
+      <section class="settings-section" aria-labelledby="gpaSettingTitle">
+        <h3 id="gpaSettingTitle">Target GPA</h3>
+        <label class="field-label" for="targetGpa">Editable target</label>
+        <input id="targetGpa" class="text-input mono" type="number" min="0" max="4" step="0.01" inputmode="decimal">
+      </section>
+
+      <section class="settings-section" aria-labelledby="backupSettingTitle">
+        <h3 id="backupSettingTitle">Data backup</h3>
+        <p class="muted">Your grades, decisions, notes, and counselor log live only on this device.</p>
+        <div class="button-row">
+          <button class="primary-button" id="exportStateButton" type="button">Export JSON</button>
+          <label class="secondary-button file-button" for="importStateInput">Import JSON</label>
+          <input id="importStateInput" class="visually-hidden" type="file" accept="application/json,.json">
+        </div>
+        <button class="quiet-button" id="resetStateButton" type="button">Reset local data</button>
+      </section>
+
+      <section class="settings-section" aria-labelledby="verifyTitle">
+        <p class="eyebrow">VERIFY BEFORE REGISTRATION</p>
+        <h3 id="verifyTitle">Official resources</h3>
+        <div id="resourceLinks" class="resource-links"></div>
+        <p class="micro-copy">Official pages override static app copy whenever requirements change.</p>
+      </section>
+
+      <p class="version-line mono" id="versionLine"></p>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="./data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

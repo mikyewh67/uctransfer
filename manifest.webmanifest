@@ -1,0 +1,27 @@
+{
+  "name": "Bobby Transfer Command",
+  "short_name": "Transfer",
+  "description": "Offline-first Santa Monica College transfer command app for Fall 2028.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "background_color": "#0A0A0C",
+  "theme_color": "#0A0A0C",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
